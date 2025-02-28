@@ -1,0 +1,10 @@
+KPI,Category,Sept_coef,Oct_coef,Nov_coef,Dec_coef,Overall_Average_coef,Overall_rank
+ccis_data_service_complaint,mv_all_serviceexperience,0.004124334,0.079289788,0.11271923,0.143122046,0.08481385,2
+stream_qoe,mv_all_serviceexperience,0.0109617,0.057933222,0.037316457,0.067317997,0.043382344,3
+games_qoe,mv_all_serviceexperience,0.009050039,0.086193094,0.059955789,0.000743477,0.0389856,9
+im_qoe,mv_all_serviceexperience,0.0085521,0.014482266,0.000284028,0,0.005829599,31
+ccis_signal_complaint,mv_all_serviceexperience,0.012881893,0.003938229,0,0,0.004205031,32
+cei_score,mv_all_serviceexperience,0.002760215,0.002806873,0.006152174,0.000632474,0.003087934,35
+ccis_voice_and_sms_service_complaint,mv_all_serviceexperience,0.000745473,0,0.000109016,0.005873403,0.001681973,39
+f_sharing_qoe,mv_all_serviceexperience,0.000663354,0,0,0,0.000165839,43
+web_page_qoe,mv_all_serviceexperience,0.000167479,0,0,0,4.18698E-05,47

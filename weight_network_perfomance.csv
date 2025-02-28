@@ -1,0 +1,13 @@
+KPI,Category,Sept_coef,Oct_coef,Nov_coef,Dec_coef,Overall_Average_coef,Overall_rank
+volte_accessibility_sr,mv_all_networkperformance,0.005490007,0.008699834,0.02548792,0.094846148,0.033630977,12
+nr_availability_rate,mv_all_networkperformance,0,0.009372904,0.03130838,0.011270779,0.012988016,23
+packetloss,mv_all_networkperformance,0.006524596,0.012111553,0.000382977,0.003612473,0.0056579,24
+sd_setup_sr_rate,mv_all_networkperformance,0.000747731,0.000333544,0.029902592,9.43E-05,0.007769552,34
+call_setup_success_rate,mv_all_networkperformance,0,0,0.000532938,0.024529586,0.006265631,37
+nr_user_throughput_dl_mbps_relactuserdl,mv_all_networkperformance,0.004891374,0,0,6.97E-05,0.001240269,38
+ows_availability,mv_all_networkperformance,0,0,0,0.007838843,0.001959711,41
+availability_rate,mv_all_networkperformance,0,7.04E-05,0.000164716,0,5.87791E-05,42
+ccsr_voice_rate,mv_all_networkperformance,0,0,0.000315447,0,7.88618E-05,44
+nr_retainability_rate,mv_all_networkperformance,0,8.32E-05,0,0,2.08094E-05,45
+nr_sn_setup_success_rate,mv_all_networkperformance,0,0,0,0,0,50
+volte_retainability_rate,mv_all_networkperformance,0,0,0,0,0,51
