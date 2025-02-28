@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Select</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .table-container { width: 70%; margin: auto; padding: 40px; }
+        table { width: 100% !important; font-size: 13px; }
+        th, td { padding: 5px 10px !important; text-align: center; }
+        .pagination { margin-top: 20px; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        .kpi-section { margin-top: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .header a { margin: 0 15px; text-decoration: none; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/clustering">Clustering</a> |
+        <a href="/data_select">Data Select</a> |
+        <a href="/feature-importance">Feature Importance & Weight</a>
+    </div>
+
+    <div class="table-container">
+        <h2 class="text-center mb-4">Data Select</h2>
+
+        <!-- Filter Form -->
+        <form method="GET" class="mb-3">
+            <div class="mb-2">
+                <label><strong>Location ID (comma-separated):</strong></label>
+                <input type="text" name="location_id" value="{{ location_id }}" class="form-control" placeholder="e.g. 123, 456, 789">
+            </div>
+
+            <label><strong>Month:</strong></label>
+            <div class="checkbox-group">
+                {% for month in range(1, 13) %}
+                    {% set month_str = month|string %}
+                    <label>
+                        <input type="checkbox" name="month" value="{{ month_str }}" {% if month_str in selected_months %}checked{% endif %}>
+                        {{ month_str }}
+                    </label>
+                {% endfor %}
+            </div>
+
+            {% for category, kpis in {'Benchmark KPI': benchmark_kpi, 'User Experience KPI': user_experience_kpi, 'Network Performance KPI': network_performance_kpi}.items() %}
+            <div class="kpi-section">
+                <label><strong>{{ category }}:</strong></label>
+                <div class="checkbox-group">
+                    {% for kpi in kpis %}
+                        <label>
+                            <input type="checkbox" name="kpi" value="{{ kpi }}" {% if kpi in selected_kpis %}checked{% endif %}>
+                            {{ kpi }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary mt-3">Apply Filters</button>
+            <a href="/data_select" class="btn btn-secondary mt-3">Reset</a>
+        </form>
+
+        <!-- Display Table -->
+        <div class="table-responsive">{{ table|safe }}</div>
+
+        <!-- Pagination -->
+        <div class="pagination d-flex justify-content-between">
+            <a href="{{ url_for('data_select', page=page-1, location_id=location_id, month=selected_months, kpi=selected_kpis) }}" 
+               class="btn btn-primary" {% if page == 1 %}disabled{% endif %}>Previous</a>
+            <a href="{{ url_for('data_select', page=page+1, location_id=location_id, month=selected_months, kpi=selected_kpis) }}" 
+               class="btn btn-primary" {% if page * per_page >= total_rows %}disabled{% endif %}>Next</a>
+        </div>
+    </div>
+</body>
+</html>

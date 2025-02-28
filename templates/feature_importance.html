@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feature Importance</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 40px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .table-container {
+            margin-top: 20px;
+            padding-top: 30px;
+        }
+        .table {
+            max-width: 80%;  /* Reduce table width */
+            margin: auto;    /* Center the table */
+            font-size: 12px; /* Smaller font size */
+        }
+        .table th, .table td {
+            padding: 8px 10px; /* Adjust padding to make the table more compact */
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 18px; /* Adjust the size as per your preference */
+            color: #333; /* Optional: Set a color for the header */
+        }
+
+        #overall_rank{
+            padding-top: 40px;
+            padding-bottom: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/clustering">Clustering</a> |
+        <a href="/data_select">Data Select</a> |
+        <a href="/feature-importance">Feature Importance & Weight</a>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center">Feature Importance & Weight</h2>
+
+        <!-- Display Message if DataFrame is Empty -->
+        {% if message %}
+            <p class="text-center text-muted">{{ message }}</p>
+        {% endif %}
+
+        <!-- Display the Table -->
+        <!-- Table 1 -->
+        <div class="table-container" id="overall_rank">
+            <h3>Overall Ranking</h3>
+            {% if table1 %}
+                <div class="table-responsive">
+                    {{ table1 | safe }}
+                </div>
+            {% else %}
+                <p class="text-center text-muted">No data available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Table 2 -->
+        <div class="table-container">
+            <h3>Benchmark Group</h3>
+            {% if table2 %}
+                <div class="table-responsive">
+                    {{ table2 | safe }}
+                </div>
+            {% else %}
+                <p class="text-center text-muted">No data available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Table 3 -->
+        <div class="table-container">
+            <h3>Service Experience</h3>
+            {% if table3 %}
+                <div class="table-responsive">
+                    {{ table3 | safe }}
+                </div>
+            {% else %}
+                <p class="text-center text-muted">No data available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Table 4 -->
+        <div class="table-container">
+            <h3>Network Performance</h3>
+            {% if table4 %}
+                <div class="table-responsive">
+                    {{ table4 | safe }}
+                </div>
+            {% else %}
+                <p class="text-center text-muted">No data available.</p>
+            {% endif %}
+        </div>
+
+    </div>
+</body>
+</html>
